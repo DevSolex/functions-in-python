@@ -6,6 +6,10 @@ from pprint import pprint
 # Update student record.
 # Get a student.
 # Display all students.
+# search_student_by_name()
+# count_students()
+#filter_by_age()
+
 
 
 
@@ -72,6 +76,26 @@ def display_student():
 	for student in students_db:
 		print(f"Name: {students_db[student]['name']}, Age: {students_db[student]['age']}, Department: {students_db[student]['department']}")
 
+def search_student_by_name():
+	student_name = input('Student name to search:\n>>')
+	for student in students_db:
+		name = students_db[student]['name']
+		if student_name == name:
+			print(f"Name: {students_db[student]['name']}, Age: {students_db[student]['age']}, Department: {students_db[student]['department']}")
+
+
+def count_student():
+	print(len(students_db))
+
+def filter_by_age():
+	student_age = int(input('Enter student age:\n>>'))
+	for student in students_db:
+		Age = students_db[student]['age']
+		if Age > student_age:
+			print(f"Name: {students_db[student]['name']}, Age: {students_db[student]['age']}, Department: {students_db[student]['department']}")
+
+
+
 def start_program():
 	while True:
 		print('''
@@ -80,6 +104,9 @@ def start_program():
 		3. Udate a student record.
 		4. Get a student.
 		5. Display all student.
+		6. search by name.
+		7. count students
+		8. filter by age
 		>>>''')
 		option = int(input('What do you what to do:\nEnter option:\n>>'))
 		if option == 1:
@@ -96,6 +123,15 @@ def start_program():
 			print('I am back to the start function')
 		elif option == 5:
 			display_student()
+			print('I am back to the start function')
+		elif option == 6:
+			search_student_by_name()
+			print('I am back to the start function')
+		elif option == 7:
+			count_student()
+			print('I am back to the start function')
+		elif option == 8:
+			filter_by_age()
 			print('I am back to the start function')
 start_program()
 		
